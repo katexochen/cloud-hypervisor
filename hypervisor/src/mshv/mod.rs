@@ -1006,7 +1006,7 @@ impl cpu::Vcpu for MshvVcpu {
                                     // Returning the error to the guest
                                     // 0x6 means `The NAE event was not valid`
                                     // Reference: GHCB Spec, page 42
-                                    let value: u64 = 0x6;
+                                    let value: u64 = 0x1_0000_0000;
                                     let mut swei2_rw_gpa_arg = mshv_bindings::mshv_read_write_gpa {
                                         base_gpa: ghcb_gpa + GHCB_SW_EXITINFO2_OFFSET,
                                         byte_count: std::mem::size_of::<u64>() as u32,
